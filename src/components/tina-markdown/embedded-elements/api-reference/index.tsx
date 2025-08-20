@@ -124,12 +124,16 @@ export const ApiReference = (data: ApiReferenceProps) => {
           return;
         }
 
-        // Fetch the schema file
+        // Fetch the schema file via API route
         let result: any;
         try {
-          result = await client.queries.apiSchema({
-            relativePath: schemaPath,
-          });
+          const response = await fetch(
+            `/api/schema?relativePath=${encodeURIComponent(schemaPath)}`
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          result = await response.json();
         } catch (error) {
           setEmptySchema();
           return;

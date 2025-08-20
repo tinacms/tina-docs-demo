@@ -5,6 +5,7 @@ import client from "@/tina/__generated__/client";
 import { getTableOfContents } from "@/utils/docs";
 import { getSeo } from "@/utils/metadata/getSeo";
 import Document from ".";
+import { dbConnection } from "../../../../lib/databaseConnection";
 
 const siteUrl =
   process.env.NODE_ENV === "development"
@@ -13,12 +14,12 @@ const siteUrl =
 
 export async function generateStaticParams() {
   try {
-    let pageListData = await client.queries.docsConnection();
+    let pageListData = await dbConnection.queries.docsConnection();
     const allPagesListData = pageListData;
 
     while (pageListData.data.docsConnection.pageInfo.hasNextPage) {
       const lastCursor = pageListData.data.docsConnection.pageInfo.endCursor;
-      pageListData = await client.queries.docsConnection({
+      pageListData = await dbConnection.queries.docsConnection({
         after: lastCursor,
       });
 
@@ -57,7 +58,7 @@ export async function generateMetadata({
 }) {
   const dynamicParams = await params;
   const slug = dynamicParams?.slug?.join("/");
-  const { data } = await fetchTinaData(client.queries.docs, slug);
+  const { data } = await fetchTinaData(dbConnection.queries.docs, slug);
 
   if (!data.docs.seo) {
     data.docs.seo = {
@@ -75,7 +76,7 @@ export async function generateMetadata({
 }
 
 async function getData(slug: string) {
-  const data = await fetchTinaData(client.queries.docs, slug);
+  const data = await fetchTinaData(dbConnection.queries.docs, slug);
   return data;
 }
 
