@@ -2,6 +2,7 @@ import { defineConfig } from "tinacms";
 import { schema } from "./schema";
 
 export const config = defineConfig({
+  contentApiUrlOverride: '/api/gql',
   schema,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   branch:
