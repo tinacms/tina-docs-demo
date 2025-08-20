@@ -1,5 +1,6 @@
 import { defineConfig } from "tinacms";
 import { schema } from "./schema";
+import { MockAuthProvider } from "./mock-auth-provider";
 
 export const config = defineConfig({
   contentApiUrlOverride: '/api/gql',
@@ -10,6 +11,7 @@ export const config = defineConfig({
     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || // Vercel branch env
     process.env.HEAD, // Netlify branch env
   token: process.env.TINA_TOKEN,
+  authProvider: new MockAuthProvider(),
   media: {
     // If you wanted cloudinary do this
     // loadCustomStore: async () => {
