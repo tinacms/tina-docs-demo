@@ -47,11 +47,11 @@ const DemoMode = () => {
     };
   }, []);
 
-  //TODO: Add when demo sequence is implemented
+  //TODO: Do we ever not want to show this?
   // if (isDemoSequenceActive) {
   //   return null;
   // }
-  
+
   return (
     <div
       style={{
@@ -68,8 +68,7 @@ const DemoMode = () => {
         zIndex: 1000,
         animation: !isHovered ? "colorPulse 2s infinite" : "none",
         boxShadow: "0 -2px 8px rgba(255, 165, 0, 0.3)",
-
-        opacity: 1,
+        opacity: isHovered ? 0 : isVisible ? 1 : 0,
         transition: "opacity 0.5s ease-in-out",
         cursor: "not-allowed",
       }}
