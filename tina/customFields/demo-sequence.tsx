@@ -13,9 +13,9 @@ interface DemoStep {
 const demoSteps: DemoStep[] = [
   {
     id: "welcome",
-    title: "Welcome to Tina Demo!",
+    title: "Welcome to the TinaDocs Demo!",
     content:
-      "This is a demonstration of the Tina CMS editor.\n You can explore the interface, but please note that new pages and content cannot be saved in this demo environment.",
+      "This is a demonstration of the TinaDocs starter.\n You can explore the interface, but please note that new pages and content cannot be saved in this demo environment.",
     position: "center",
   },
   {
@@ -38,9 +38,17 @@ const demoSteps: DemoStep[] = [
     id: "content-area",
     title: "Content Editor",
     content:
-      "This is the main content editing area where you can modify your content using Tina's intuitive interface. Feel free to explore!",
-    target: "content-area",
+      "This is the primary content editing area where you can modify your content using Tina's intuitive interface. Feel free to explore!",
+    target: "e-«r0»",
     position: "left",
+  },
+  {
+    id: "embed-area",
+    title: "Embed Custom Components",
+    content:
+      "Clicking into the three dots | 'Embed' you can embed custom components into your content. Try exploring the available components!",
+    target: "radix-«rd»",
+    position: "right",
   },
 ];
 
@@ -144,30 +152,10 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
 
       {/* Backdrop blur overlay with cutout for focused area */}
       {currentStepData.target ? (
-        <div
-          className={`fixed inset-0 pointer-events-none z-[9997] transition-all duration-700 ease-out ${
-            isCompleting
-              ? "opacity-0"
-              : isAnimating
-              ? "opacity-70"
-              : "opacity-100"
-          }`}
-          style={{
-            backdropFilter: "blur(4px)",
-            WebkitBackdropFilter: "blur(4px)",
-            mask:
-              currentStepData.target === "content-area"
-                ? "radial-gradient(ellipse 400px 320px at 20% 30%, transparent 200px, black 120px)"
-                : `radial-gradient(circle at ${getTargetPosition(
-                    currentStepData.target
-                  )}, transparent 120px, black 160px)`,
-            WebkitMask:
-              currentStepData.target === "content-area"
-                ? "radial-gradient(ellipse 400px 320px at 20% 30%, transparent 200px, black 140px)"
-                : `radial-gradient(circle at ${getTargetPosition(
-                    currentStepData.target
-                  )}, transparent 120px, black 160px)`,
-          }}
+        <BlurOverlayWithCutout
+          target={currentStepData.target}
+          isCompleting={isCompleting}
+          isAnimating={isAnimating}
         />
       ) : (
         <div
@@ -183,7 +171,7 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
 
       {/* Demo Dialog */}
       <div
-        className={`fixed z-[9999] bg-[#e2e8f0]/80 backdrop-blur-md rounded-2xl shadow-2xl h-[400px] border border-gray-200/50 w-80 p-8 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform md:top-96 top-[60%] -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col lg:translate-x-[115%] md:translate-x-[50%] ${
+        className={`fixed z-[9999] bg-[#e2e8f0]/80 backdrop-blur-md rounded-2xl shadow-2xl h-[400px] border border-gray-200/50 w-[24rem] p-8 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform md:top-96 top-[60%] -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col lg:translate-x-[115%] md:translate-x-[50%] ${
           isCompleting ? "opacity-0" : "opacity-100"
         }`}
         style={{
@@ -305,7 +293,7 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
           <button
             type="button"
             onClick={handleNext}
-            className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl text-sm font-semibold hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-500/20 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+            className="px-6 py-3 bg-orange-600 text-white rounded-xl text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-orange-500/20 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
           >
             {isLastStep ? "Explore →" : "Next →"}
           </button>
@@ -331,6 +319,129 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
   );
 };
 
+// Helper component for blur overlay with precise element cutout
+const BlurOverlayWithCutout: React.FC<{
+  target: string;
+  isCompleting: boolean;
+  isAnimating: boolean;
+}> = ({ target, isCompleting, isAnimating }) => {
+  const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (target === "e-«r0»" || target === "radix-«rd»") {
+      const element = document.getElementById(target);
+      setTargetElement(element);
+    } else {
+      setTargetElement(null);
+    }
+  }, [target]);
+
+  if ((target === "e-«r0»" || target === "radix-«rd»") && targetElement) {
+    // Create four blur overlays that surround the target element
+    const rect = targetElement.getBoundingClientRect();
+    return (
+      <>
+        {/* Top blur overlay */}
+        <div
+          className={`fixed left-0 right-0 pointer-events-none z-[9997] transition-all duration-700 ease-out ${
+            isCompleting
+              ? "opacity-0"
+              : isAnimating
+              ? "opacity-70"
+              : "opacity-100"
+          }`}
+          style={{
+            top: 0,
+            height: `${rect.top}px`,
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(4px)",
+          }}
+        />
+
+        {/* Bottom blur overlay */}
+        <div
+          className={`fixed left-0 right-0 pointer-events-none z-[9997] transition-all duration-700 ease-out ${
+            isCompleting
+              ? "opacity-0"
+              : isAnimating
+              ? "opacity-70"
+              : "opacity-100"
+          }`}
+          style={{
+            top: `${rect.bottom}px`,
+            bottom: 0,
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(4px)",
+          }}
+        />
+
+        {/* Left blur overlay */}
+        <div
+          className={`fixed pointer-events-none z-[9997] transition-all duration-700 ease-out ${
+            isCompleting
+              ? "opacity-0"
+              : isAnimating
+              ? "opacity-70"
+              : "opacity-100"
+          }`}
+          style={{
+            left: 0,
+            top: `${rect.top}px`,
+            width: `${rect.left}px`,
+            height: `${rect.height}px`,
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(4px)",
+          }}
+        />
+
+        {/* Right blur overlay */}
+        <div
+          className={`fixed pointer-events-none z-[9997] transition-all duration-700 ease-out ${
+            isCompleting
+              ? "opacity-0"
+              : isAnimating
+              ? "opacity-70"
+              : "opacity-100"
+          }`}
+          style={{
+            left: `${rect.right}px`,
+            top: `${rect.top}px`,
+            right: 0,
+            height: `${rect.height}px`,
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(4px)",
+          }}
+        />
+      </>
+    );
+  }
+
+  // Fallback for other targets
+  return (
+    <div
+      className={`fixed inset-0 pointer-events-none z-[9997] transition-all duration-700 ease-out ${
+        isCompleting ? "opacity-0" : isAnimating ? "opacity-70" : "opacity-100"
+      }`}
+      style={{
+        backdropFilter: "blur(4px)",
+        WebkitBackdropFilter: "blur(4px)",
+        mask:
+          target === "content-area"
+            ? "radial-gradient(ellipse 400px 320px at 20% 30%, transparent 200px, black 120px)"
+            : `radial-gradient(circle at ${getTargetPosition(
+                target
+              )}, transparent 120px, black 160px)`,
+        WebkitMask:
+          target === "content-area"
+            ? "radial-gradient(ellipse 400px 320px at 20% 30%, transparent 200px, black 140px)"
+            : `radial-gradient(circle at ${getTargetPosition(
+                target
+              )}, transparent 120px, black 160px)`,
+      }}
+    />
+  );
+};
+
 // Helper component to highlight specific areas
 const HighlightOverlay: React.FC<{
   target: string;
@@ -339,6 +450,18 @@ const HighlightOverlay: React.FC<{
 }> = ({ target, isAnimating, isCompleting }) => {
   const isContentArea = target === "content-area";
   const [isVisible, setIsVisible] = useState(false);
+  const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
+
+  // Find the target element by ID
+  useEffect(() => {
+    if (!target) {
+      setTargetElement(null);
+      return;
+    }
+
+    const element = document.getElementById(target);
+    setTargetElement(element);
+  }, [target]);
 
   // Fade in the highlights after a brief delay, but only if there's a target
   useEffect(() => {
@@ -408,9 +531,26 @@ const HighlightOverlay: React.FC<{
             : "opacity-0 scale-95"
         }`}
       >
-        {isContentArea ? (
+        {(target === "e-«r0»" || target === "radix-«rd»") && targetElement ? (
           <>
-            {/* Outer rectangle with glow */}
+            {/* Exact border rectangle for targeted element */}
+            <div
+              className={`absolute border-2 border-white/80 rounded-xl transition-all duration-700 ease-out ${
+                isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
+              }`}
+              style={{
+                width: `${targetElement.getBoundingClientRect().width}px`,
+                height: `${targetElement.getBoundingClientRect().height}px`,
+                left: `${targetElement.getBoundingClientRect().left}px`,
+                top: `${targetElement.getBoundingClientRect().top}px`,
+                boxShadow: "0 0 30px rgba(255, 255, 255, 0.8)",
+                transition: "all 0.7s cubic-bezier(0.25, 1, 0.5, 1)",
+              }}
+            />
+          </>
+        ) : isContentArea ? (
+          <>
+            {/* Fallback for content-area */}
             <div
               className={`absolute border-2 border-white/60 rounded-xl animate-pulse transition-all duration-700 ease-out ${
                 isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
@@ -424,23 +564,6 @@ const HighlightOverlay: React.FC<{
                 top: `calc(${getTargetPosition(target).split(" ")[1]} - 150px)`,
                 boxShadow:
                   "0 0 40px rgba(255, 255, 255, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.3)",
-                transition: "all 0.7s cubic-bezier(0.25, 1, 0.5, 1)",
-              }}
-            />
-
-            {/* Inner rectangle */}
-            <div
-              className={`absolute border-2 border-white/80 rounded-xl transition-all duration-700 ease-out ${
-                isAnimating ? "opacity-50 scale-95" : "opacity-100 scale-100"
-              }`}
-              style={{
-                width: "310px",
-                height: "260px",
-                left: `calc(${
-                  getTargetPosition(target).split(" ")[0]
-                } - 155px)`,
-                top: `calc(${getTargetPosition(target).split(" ")[1]} - 130px)`,
-                boxShadow: "0 0 30px rgba(255, 255, 255, 0.8)",
                 transition: "all 0.7s cubic-bezier(0.25, 1, 0.5, 1)",
               }}
             />
@@ -496,7 +619,10 @@ function getTargetPosition(target: string): string {
     case "collection-menu":
       return "10% 5%";
     case "content-area":
+    case "e-«r0»":
       return "50% 300px";
+    case "radix-«rd»":
+      return "75% 50%";
     default:
       return "50% 50%";
   }
