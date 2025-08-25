@@ -13,6 +13,7 @@ import YoutubeTemplate from "@/tina/templates/markdown-embeds/youtube.template";
 import type { Template } from "tinacms";
 import SeoInformation from "./seo-information";
 import DemoMode from "../customFields/demo-mode";
+import DemoIntroSequence from "../customFields/demo-sequence";
 
 export const docsCollection = {
   name: "docs",
@@ -106,6 +107,14 @@ export const docsCollection = {
       type: 'boolean',
       ui: {
         component: DemoMode
+      }
+    },
+    {
+      name: 'demoIntroSequence',
+      label: 'Demo Intro Sequence',
+      type: 'boolean',
+      ui: {
+        component: DemoIntroSequence
       }
     }
   ],
