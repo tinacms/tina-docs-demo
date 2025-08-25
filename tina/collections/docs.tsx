@@ -12,6 +12,7 @@ import { TypeDefinitionTemplate } from "@/tina/templates/markdown-embeds/type-de
 import YoutubeTemplate from "@/tina/templates/markdown-embeds/youtube.template";
 import type { Template } from "tinacms";
 import SeoInformation from "./seo-information";
+import DemoMode from "../customFields/demo-mode";
 
 export const docsCollection = {
   name: "docs",
@@ -99,6 +100,14 @@ export const docsCollection = {
         FileStructureTemplate as unknown as Template,
       ],
     },
+    {
+      name: 'demoMode',
+      label: 'Demo Mode',
+      type: 'boolean',
+      ui: {
+        component: DemoMode
+      }
+    }
   ],
 };
 
