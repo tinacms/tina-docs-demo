@@ -7,8 +7,8 @@ import { MockGitHubProvider } from "./mock-git-provider";
 console.log("MongoDB URI exists:", !!process.env.MONGODB_URI);
 
 const mongodbLevelStore = new MongodbLevel<string, Record<string, any>>({
-  collectionName: "tinacms",
-  dbName: "tinacms",
+  collectionName: "tina-docs-demo",
+  dbName: "tina-docs-demo",
   mongoUri: process.env.MONGODB_URI as string,
 });
 
