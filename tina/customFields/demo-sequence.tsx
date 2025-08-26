@@ -144,8 +144,8 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
           isCompleting
             ? "opacity-0"
             : isAnimating
-            ? "opacity-90"
-            : "opacity-100"
+              ? "opacity-90"
+              : "opacity-100"
         }`}
         style={{ pointerEvents: "auto" }}
       />
@@ -163,8 +163,8 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
             isCompleting
               ? "opacity-0"
               : isAnimating
-              ? "opacity-70"
-              : "opacity-100"
+                ? "opacity-70"
+                : "opacity-100"
           }`}
         />
       )}
@@ -257,8 +257,8 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
                   index === currentStep
                     ? "w-8 bg-orange-500"
                     : index < currentStep
-                    ? "w-2 bg-orange-300"
-                    : "w-2 bg-gray-400"
+                      ? "w-2 bg-orange-300"
+                      : "w-2 bg-gray-400"
                 }`}
                 style={{ transitionDelay: `${index * 50}ms` }}
               />
@@ -347,8 +347,8 @@ const BlurOverlayWithCutout: React.FC<{
             isCompleting
               ? "opacity-0"
               : isAnimating
-              ? "opacity-70"
-              : "opacity-100"
+                ? "opacity-70"
+                : "opacity-100"
           }`}
           style={{
             top: 0,
@@ -364,8 +364,8 @@ const BlurOverlayWithCutout: React.FC<{
             isCompleting
               ? "opacity-0"
               : isAnimating
-              ? "opacity-70"
-              : "opacity-100"
+                ? "opacity-70"
+                : "opacity-100"
           }`}
           style={{
             top: `${rect.bottom}px`,
@@ -381,8 +381,8 @@ const BlurOverlayWithCutout: React.FC<{
             isCompleting
               ? "opacity-0"
               : isAnimating
-              ? "opacity-70"
-              : "opacity-100"
+                ? "opacity-70"
+                : "opacity-100"
           }`}
           style={{
             left: 0,
@@ -400,8 +400,8 @@ const BlurOverlayWithCutout: React.FC<{
             isCompleting
               ? "opacity-0"
               : isAnimating
-              ? "opacity-70"
-              : "opacity-100"
+                ? "opacity-70"
+                : "opacity-100"
           }`}
           style={{
             left: `${rect.right}px`,
@@ -527,8 +527,8 @@ const HighlightOverlay: React.FC<{
           isCompleting
             ? "opacity-0 scale-95"
             : isVisible
-            ? "opacity-100 scale-100"
-            : "opacity-0 scale-95"
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-95"
         }`}
       >
         {(target === "e-«r0»" || target === "radix-«rd»") && targetElement ? (

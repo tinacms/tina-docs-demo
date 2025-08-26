@@ -1,24 +1,21 @@
-import { AbstractAuthProvider } from 'tinacms'
+import { AbstractAuthProvider } from "tinacms";
 
 export class MockAuthProvider extends AbstractAuthProvider {
   // biome-ignore lint/complexity/noUselessConstructor: <explanation>
   constructor() {
-    super()
+    super();
   }
-  async authenticate(props?: {}): Promise<any> {
-  }
+  async authenticate(props?: {}): Promise<any> {}
 
   async getToken() {
     return {
-        id_token: 'id_token',
-    }
+      id_token: "id_token",
+    };
   }
 
   async getUser() {
     return true;
   }
 
-  async logout() {
-  }
-
+  async logout() {}
 }

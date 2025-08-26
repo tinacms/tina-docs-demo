@@ -1,9 +1,9 @@
 import { defineConfig } from "tinacms";
-import { schema } from "./schema";
 import { MockAuthProvider } from "./mock-auth-provider";
+import { schema } from "./schema";
 
 export const config = defineConfig({
-  contentApiUrlOverride: '/api/gql',
+  contentApiUrlOverride: "/api/gql",
   schema,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   branch:
