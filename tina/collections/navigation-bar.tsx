@@ -1,8 +1,8 @@
 import { getBearerAuthHeader } from "@/src/utils/tina/get-bearer-auth-header";
 import { ApiReferencesSelector } from "../customFields/api-reference-selector";
+import DemoMode from "../customFields/demo-mode";
 import { itemTemplate } from "../templates/navbar-ui.template";
 import submenuTemplate from "../templates/submenu.template";
-import DemoMode from "../customFields/demo-mode";
 
 const docsNavigationBarFields = [
   {
@@ -202,13 +202,13 @@ export const docsNavigationBarCollection = {
       ],
     },
     {
-      name: 'demoMode',
-      label: 'Demo Mode',
-      type: 'boolean',
+      name: "demoMode",
+      label: "Demo Mode",
+      type: "boolean",
       ui: {
-        component: DemoMode
-      }
-    }
+        component: DemoMode,
+      },
+    },
   ],
 };
 

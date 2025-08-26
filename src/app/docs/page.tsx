@@ -4,8 +4,8 @@ import { fetchTinaData } from "@/services/tina/fetch-tina-data";
 import client from "@/tina/__generated__/client";
 import { getTableOfContents } from "@/utils/docs";
 import { getSeo } from "@/utils/metadata/getSeo";
+import { dbConnection } from "../../../lib/databaseConnection";
 import Document from "./[...slug]";
-import { dbConnection } from '../../../lib/databaseConnection'
 
 const siteUrl =
   process.env.NODE_ENV === "development"

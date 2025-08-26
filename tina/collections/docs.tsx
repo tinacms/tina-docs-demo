@@ -11,8 +11,9 @@ import ScrollShowcaseTemplate from "@/tina/templates/markdown-embeds/scroll-show
 import { TypeDefinitionTemplate } from "@/tina/templates/markdown-embeds/type-definition.template";
 import YoutubeTemplate from "@/tina/templates/markdown-embeds/youtube.template";
 import type { Template } from "tinacms";
-import SeoInformation from "./seo-information";
 import DemoMode from "../customFields/demo-mode";
+import DemoIntroSequence from "../customFields/demo-sequence";
+import SeoInformation from "./seo-information";
 
 export const docsCollection = {
   name: "docs",
@@ -101,13 +102,21 @@ export const docsCollection = {
       ],
     },
     {
-      name: 'demoMode',
-      label: 'Demo Mode',
-      type: 'boolean',
+      name: "demoMode",
+      label: "Demo Mode",
+      type: "boolean",
       ui: {
-        component: DemoMode
-      }
-    }
+        component: DemoMode,
+      },
+    },
+    {
+      name: "demoIntroSequence",
+      label: "Demo Intro Sequence",
+      type: "boolean",
+      ui: {
+        component: DemoIntroSequence,
+      },
+    },
   ],
 };
 

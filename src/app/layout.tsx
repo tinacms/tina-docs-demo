@@ -9,8 +9,8 @@ import { Inter, Roboto_Flex } from "next/font/google";
 
 import { TabsLayout } from "@/components/docs/layout/tab-layout";
 import type React from "react";
-import { TinaClient } from "./tina-client";
 import { dbConnection } from "../../lib/databaseConnection";
+import { TinaClient } from "./tina-client";
 
 const body = Inter({ subsets: ["latin"], variable: "--body-font" });
 const heading = Roboto_Flex({
@@ -68,9 +68,11 @@ const Content = ({ children }: { children?: React.ReactNode }) => (
 const DocsMenu = async ({ children }: { children?: React.ReactNode }) => {
   // Fetch navigation data that will be shared across all docs pages
 
-  const navigationData = await dbConnection.queries.minimisedNavigationBarFetch({
-    relativePath: "docs-navigation-bar.json",
-  });
+  const navigationData = await dbConnection.queries.minimisedNavigationBarFetch(
+    {
+      relativePath: "docs-navigation-bar.json",
+    }
+  );
 
   return (
     <div className="relative flex flex-col w-full pb-2">
