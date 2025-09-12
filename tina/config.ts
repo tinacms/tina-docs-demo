@@ -26,10 +26,10 @@ export const config = defineConfig({
     accept: ["image/*", "video/*", "application/json", ".json"],
   },
   build: {
-    publicFolder: "public", // The public asset folder for your framework
-    outputFolder: "tinadocs/demo/admin", // within the public folder
-    basePath: '/tinadocs/demo'
-  },
+    publicFolder: 'public',
+    outputFolder: 'admin',        
+    basePath: '/tinadocs/demo',   
+  }
 });
 
 export default config;
