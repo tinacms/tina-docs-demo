@@ -28,7 +28,7 @@ export const config = defineConfig({
   build: {
     publicFolder: 'public',
     outputFolder: 'admin',        
-    basePath: 'tinacms/demo'
+    basePath: 'tinadocs/demo'
   }
 });
 
