@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
       // biome-ignore lint/suspicious/noConsole: <explanation>
       console.log(
         "Received GraphQL request with query:",
-        query.substring(0, 100) + "..."
+        `${query.substring(0, 100)}...`
       );
 
       const result = await databaseRequest({ query, variables });

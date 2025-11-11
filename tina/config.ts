@@ -26,9 +26,9 @@ export const config = defineConfig({
     accept: ["image/*", "video/*", "application/json", ".json"],
   },
   build: {
-    publicFolder: 'public',
-    outputFolder: 'admin',        
-  }
+    publicFolder: "public",
+    outputFolder: "admin",
+  },
 });
 
 export default config;
