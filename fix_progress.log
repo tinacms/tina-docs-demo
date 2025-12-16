@@ -1,0 +1,235 @@
+[0;34m[INFO][0m Creating branch: fix/nextjs-cve-20251216
+Switched to a new branch 'fix/nextjs-cve-20251216'
+[0;32m✅ [SUCCESS][0m Created branch: fix/nextjs-cve-20251216
+[0;34m[INFO][0m Running npx fix-react2shell-next --fix...
+
+[1mfix-react2shell-next[0m[2m - Next.js vulnerability scanner
+[0m
+[2mChecking for 4 known vulnerabilities:
+[0m
+[2m  - [0m[31mCVE-2025-66478[0m[2m (critical): Remote code execution via crafted RSC payload[0m
+[2m  - [0m[33mCVE-2025-55184[0m[2m (high): DoS via malicious HTTP request causing server to hang and consume CPU[0m
+[2m  - [0m[36mCVE-2025-55183[0m[2m (medium): Compiled Server Action source code can be exposed via malicious request[0m
+[2m  - [0m[33mCVE-2025-67779[0m[2m (high): Incomplete fix for CVE-2025-55184 DoS via malicious RSC payload causing infinite loop[0m
+
+[2mFound 1 package.json file(s)
+[0m
+[31mFound 1 vulnerable file(s):
+[0m
+[33m  package.json[0m
+[2m     next: [0m[31m^15.4.1[0m[2m -> [0m[32m15.4.10[0m[35m [CVE-2025-66478, CVE-2025-55184, CVE-2025-55183, CVE-2025-67779][0m
+
+[36m
+Applying fixes...
+[0m
+[32m   Updated package.json[0m
+[36m
+Installing dependencies...
+[0m
+[2m. (pnpm)[0m
+[2m
+$ pnpm install
+[0m
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 43, reused 22, downloaded 20, added 0
+Progress: resolved 598, reused 553, downloaded 31, added 0
+Progress: resolved 664, reused 563, downloaded 82, added 0
+Progress: resolved 786, reused 632, downloaded 121, added 0
+Progress: resolved 840, reused 650, downloaded 149, added 0
+Progress: resolved 1553, reused 1281, downloaded 206, added 0
+Progress: resolved 1561, reused 1283, downloaded 212, added 0
+Progress: resolved 1586, reused 1286, downloaded 212, added 0
+Progress: resolved 1586, reused 1286, downloaded 213, added 0
+Progress: resolved 1610, reused 1307, downloaded 214, added 0
+Progress: resolved 1641, reused 1338, downloaded 217, added 0
+ WARN  2 deprecated subdependencies found: lodash.get@4.4.2, react-beautiful-dnd@13.1.1
+Packages: +1563
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1645, reused 1342, downloaded 218, added 0
+Progress: resolved 1645, reused 1342, downloaded 218, added 617
+Progress: resolved 1645, reused 1342, downloaded 218, added 947
+Progress: resolved 1645, reused 1342, downloaded 218, added 1257
+Progress: resolved 1645, reused 1342, downloaded 218, added 1447
+Progress: resolved 1645, reused 1342, downloaded 220, added 1560
+Progress: resolved 1645, reused 1342, downloaded 220, added 1563, done
+.../esbuild@0.25.8/node_modules/esbuild postinstall$ node install.js
+.../node_modules/better-sqlite3 install$ prebuild-install || node-gyp rebuild --release
+.../sharp@0.34.3/node_modules/sharp install$ node install/check.js
+.../node_modules/@biomejs/biome postinstall$ node scripts/postinstall.js
+.../node_modules/@biomejs/biome postinstall: Done
+.../node_modules/better-sqlite3 install: (node:18795) [DEP0176] DeprecationWarning: fs.R_OK is deprecated, use fs.constants.R_OK instead
+.../node_modules/better-sqlite3 install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../esbuild@0.25.8/node_modules/esbuild postinstall: Done
+.../node_modules/better-sqlite3 install: prebuild-install warn install No prebuilt binaries found (target=24.12.0 runtime=node arch=arm64 libc= platform=darwin)
+.../node_modules/better-sqlite3 install: gyp info it worked if it ends with ok
+.../node_modules/better-sqlite3 install: gyp info using node-gyp@11.4.2
+.../node_modules/better-sqlite3 install: gyp info using node@24.12.0 | darwin | arm64
+.../node_modules/better-sqlite3 install: gyp info find Python using Python version 3.10.19 found at "/Users/hark/.pyenv/versions/3.10.19/bin/python3"
+.../node_modules/better-sqlite3 install: gyp info spawn /Users/hark/.pyenv/versions/3.10.19/bin/python3
+.../node_modules/better-sqlite3 install: gyp info spawn args [
+.../node_modules/better-sqlite3 install: gyp info spawn args '/Users/hark/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py',
+.../node_modules/better-sqlite3 install: gyp info spawn args 'binding.gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-f',
+.../node_modules/better-sqlite3 install: gyp info spawn args 'make',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args '/Users/hark/ssw/automation/nextjs-cve-scanner/repos_temp/tina-docs-demo/node_modules/.pnpm/better-sqlite3@11.10.0/node_modules/better-sqlite3/build/config.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args '/Users/hark/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/node-gyp/addon.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-I',
+.../node_modules/better-sqlite3 install: gyp info spawn args '/Users/hark/Library/Caches/node-gyp/24.12.0/include/node/common.gypi',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dlibrary=shared_library',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dvisibility=default',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dnode_root_dir=/Users/hark/Library/Caches/node-gyp/24.12.0',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dnode_gyp_dir=/Users/hark/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/node-gyp',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dnode_lib_file=/Users/hark/Library/Caches/node-gyp/24.12.0/<(target_arch)/node.lib',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dmodule_root_dir=/Users/hark/ssw/automation/nextjs-cve-scanner/repos_temp/tina-docs-demo/node_modules/.pnpm/better-sqlite3@11.10.0/node_modules/better-sqlite3',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Dnode_engine=v8',
+.../node_modules/better-sqlite3 install: gyp info spawn args '--depth=.',
+.../node_modules/better-sqlite3 install: gyp info spawn args '--no-parallel',
+.../node_modules/better-sqlite3 install: gyp info spawn args '--generator-output',
+.../node_modules/better-sqlite3 install: gyp info spawn args 'build',
+.../node_modules/better-sqlite3 install: gyp info spawn args '-Goutput_dir=.'
+.../node_modules/better-sqlite3 install: gyp info spawn args ]
+.../sharp@0.34.3/node_modules/sharp install: Done
+.../node_modules/better-sqlite3 install: gyp info spawn make
+.../node_modules/better-sqlite3 install: gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+.../node_modules/better-sqlite3 install:   TOUCH ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   ACTION deps_sqlite3_gyp_locate_sqlite3_target_copy_builtin_sqlite3 ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install:   TOUCH Release/obj.target/deps/locate_sqlite3.stamp
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/sqlite3/gen/sqlite3/sqlite3.o
+.../node_modules/better-sqlite3 install:   LIBTOOL-STATIC Release/sqlite3.a
+.../node_modules/better-sqlite3 install:   CXX(target) Release/obj.target/better_sqlite3/src/better_sqlite3.o
+.../node_modules/better-sqlite3 install: ./src/better_sqlite3.lzz:67:1: warning: cast from 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>)' to 'node::addon_context_register_func' (aka 'void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, v8::Local<v8::Context>, void *)') converts to incompatible function type [-Wcast-function-type-mismatch]
+.../node_modules/better-sqlite3 install:    67 | NODE_MODULE_INIT(/* exports, context */) {
+.../node_modules/better-sqlite3 install:       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /Users/hark/Library/Caches/node-gyp/24.12.0/include/node/node.h:1347:3: note: expanded from macro 'NODE_MODULE_INIT'
+.../node_modules/better-sqlite3 install:  1347 |   NODE_MODULE_CONTEXT_AWARE(NODE_GYP_MODULE_NAME,                     \
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install:  1348 |                             NODE_MODULE_INITIALIZER)                  \
+.../node_modules/better-sqlite3 install:       |                             ~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /Users/hark/Library/Caches/node-gyp/24.12.0/include/node/node.h:1316:3: note: expanded from macro 'NODE_MODULE_CONTEXT_AWARE'
+.../node_modules/better-sqlite3 install:  1316 |   NODE_MODULE_CONTEXT_AWARE_X(modname, regfunc, NULL, 0)
+.../node_modules/better-sqlite3 install:       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: /Users/hark/Library/Caches/node-gyp/24.12.0/include/node/node.h:1298:7: note: expanded from macro 'NODE_MODULE_CONTEXT_AWARE_X'
+.../node_modules/better-sqlite3 install:  1298 |       (node::addon_context_register_func) (regfunc),                  \
+.../node_modules/better-sqlite3 install:       |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.../node_modules/better-sqlite3 install: ./src/objects/database.lzz:180:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+.../node_modules/better-sqlite3 install:   180 |                 int status = sqlite3_db_config(db_handle, SQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION, 1, NULL);
+.../node_modules/better-sqlite3 install:       |                     ^
+.../node_modules/better-sqlite3 install: ./src/util/custom-table.lzz:45:9: warning: missing field 'xIntegrity' initializer [-Wmissing-field-initializers]
+.../node_modules/better-sqlite3 install:    45 |         };
+.../node_modules/better-sqlite3 install:       |         ^
+.../node_modules/better-sqlite3 install: ./src/util/custom-table.lzz:72:9: warning: missing field 'xIntegrity' initializer [-Wmissing-field-initializers]
+.../node_modules/better-sqlite3 install:    72 |         };
+.../node_modules/better-sqlite3 install:       |         ^
+.../node_modules/better-sqlite3 install: 4 warnings generated.
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/better_sqlite3.node
+.../node_modules/better-sqlite3 install:   CC(target) Release/obj.target/test_extension/deps/test_extension.o
+.../node_modules/better-sqlite3 install:   SOLINK_MODULE(target) Release/test_extension.node
+.../node_modules/better-sqlite3 install: rm ba23eeee118cd63e16015df367567cb043fed872.intermediate
+.../node_modules/better-sqlite3 install: gyp info ok 
+.../node_modules/better-sqlite3 install: Done
+
+dependencies:
++ @heroicons/react 2.2.0
++ @monaco-editor/react 4.7.0
++ @radix-ui/react-dropdown-menu 2.1.15
++ @radix-ui/react-tabs 1.1.12
++ @tinacms/datalayer 1.3.17
++ @tinacms/graphql 1.5.17
++ copy-to-clipboard 3.3.3
++ fast-glob 3.3.3
++ graphql 15.8.0
++ html-to-md 0.8.8
++ lodash 4.17.21
++ mermaid 11.8.1
++ monaco-editor 0.52.2
++ mongodb 6.18.0
++ mongodb-level 0.0.2
++ motion 12.23.1
++ next 15.4.10 (16.0.10 is available)
++ next-themes 0.4.6
++ prism-react-renderer 2.4.1
++ prismjs 1.30.0
++ react 19.1.0
++ react-animate-height 3.2.3
++ react-dom 19.1.0
++ react-dropzone 14.3.8
++ react-icons 5.5.0
++ react-markdown 10.1.0
++ rehype-pretty-code 0.14.1
++ shiki 3.7.0
++ tinacms 2.8.1
++ title-case 4.3.2
++ typescript 5.8.3
+
+devDependencies:
++ @biomejs/biome 1.9.4
++ @playwright/test 1.54.2
++ @shikijs/transformers 3.7.0
++ @svgr/webpack 8.1.0
++ @tailwindcss/postcss 4.1.11
++ @tinacms/cli 1.10.1
++ @types/node 24.2.1
++ autoprefixer 10.4.21
++ monaco-editor-webpack-plugin 7.1.0
++ next-sitemap 4.2.3
++ pagefind 1.3.0
++ postcss 8.5.6
++ postcss-preset-env 10.2.4
++ tailwindcss 4.1.11
++ worker-loader 3.0.8
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ @tinacms/cli 1.10.1
+  ├─┬ tinacms 2.8.1
+  │ ├─┬ @headlessui/react 2.1.8
+  │ │ ├── ✕ unmet peer react@^18: found 19.1.0
+  │ │ └── ✕ unmet peer react-dom@^18: found 19.1.0
+  │ ├─┬ react-final-form 6.5.9
+  │ │ └── ✕ unmet peer react@"^16.8.0 || ^17.0.0 || ^18.0.0": found 19.1.0
+  │ ├─┬ react-beautiful-dnd 13.1.1
+  │ │ ├── ✕ unmet peer react@"^16.8.5 || ^17.0.0 || ^18.0.0": found 19.1.0
+  │ │ ├── ✕ unmet peer react-dom@"^16.8.5 || ^17.0.0 || ^18.0.0": found 19.1.0
+  │ │ ├─┬ use-memo-one 1.1.3
+  │ │ │ └── ✕ unmet peer react@"^16.8.0 || ^17.0.0 || ^18.0.0": found 19.1.0
+  │ │ └─┬ react-redux 7.2.9
+  │ │   └── ✕ unmet peer react@"^16.8.3 || ^17 || ^18": found 19.1.0
+  │ ├─┬ @tinacms/schema-tools 1.9.0
+  │ │ └── ✕ unmet peer yup@^0.32.0: found 1.6.1
+  │ └─┬ @tinacms/mdx 1.8.0
+  │   └─┬ typedoc 0.26.11
+  │     └── ✕ unmet peer typescript@"4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x": found 5.8.3
+  ├─┬ @tinacms/app 2.3.1
+  │ ├─┬ @monaco-editor/react 4.4.5
+  │ │ ├── ✕ unmet peer react@"^16.8.0 || ^17.0.0 || ^18.0.0": found 19.1.0
+  │ │ └── ✕ unmet peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0": found 19.1.0
+  │ └─┬ graphiql 3.0.0-alpha.1
+  │   ├── ✕ unmet peer react@"^16.8.0 || ^17 || ^18": found 19.1.0
+  │   ├── ✕ unmet peer react-dom@"^16.8.0 || ^17 || ^18": found 19.1.0
+  │   └─┬ @graphiql/react 0.18.0
+  │     ├── ✕ unmet peer react@"^16.8.0 || ^17 || ^18": found 19.1.0
+  │     ├── ✕ unmet peer react-dom@"^16.8.0 || ^17 || ^18": found 19.1.0
+  │     └─┬ @headlessui/react 1.7.19
+  │       ├── ✕ unmet peer react@"^16 || ^17 || ^18": found 19.1.0
+  │       └── ✕ unmet peer react-dom@"^16 || ^17 || ^18": found 19.1.0
+  └─┬ @tinacms/metrics 1.1.0
+    └── ✕ unmet peer fs-extra@^9.0.1: found 11.3.0
+
+Done in 30.5s
+[32m
+Patches applied![0m
+[2m   Remember to test your app and commit the changes.
+[0m
+[0;32m✅ [SUCCESS][0m Fix command completed - vulnerabilities found and fixed
+[0;34m[INFO][0m Updating lockfiles for modified packages...
+[0;34m[INFO][0m   Found modified package.json in: .
+[0;34m[INFO][0m Processing directory: .
+[0;34m[INFO][0m   Detected pnpm-lock.yaml in ., running pnpm install...
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+Done in 455ms
+[0;32m✅ [SUCCESS][0m Lockfiles updated
+[0;34m[INFO][0m Changes detected, proceeding with commit...
