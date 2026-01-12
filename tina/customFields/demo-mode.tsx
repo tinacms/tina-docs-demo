@@ -47,10 +47,9 @@ const DemoMode = () => {
     };
   }, []);
 
-  //TODO: Do we ever not want to show this?
-  // if (isDemoSequenceActive) {
-  //   return null;
-  // }
+  if (isDemoSequenceActive) {
+    return null;
+  }
 
   return (
     <div
