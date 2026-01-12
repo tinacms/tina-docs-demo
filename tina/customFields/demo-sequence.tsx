@@ -76,9 +76,9 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
       setIsVisible(false);
       setDemoSequenceActive(false);
     } else {
-    setIsVisible(true);
-    setDemoSequenceActive(true);
-    // }
+      setIsVisible(true);
+      setDemoSequenceActive(true);
+    }
   }, []);
 
   // Clean up when component unmounts
