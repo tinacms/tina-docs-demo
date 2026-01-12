@@ -70,12 +70,12 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
 
   // Check if demo has been completed before
   useEffect(() => {
-    // const hasCompletedDemo = localStorage.getItem('tina-demo-completed') === 'true';
+    const hasCompletedDemo = localStorage.getItem('tina-demo-completed') === 'true';
 
-    // if (!forceShow && hasCompletedDemo) {
-    //   setIsVisible(false);
-    //   setDemoSequenceActive(false);
-    // } else {
+    if (!forceShow && hasCompletedDemo) {
+      setIsVisible(false);
+      setDemoSequenceActive(false);
+    } else {
     setIsVisible(true);
     setDemoSequenceActive(true);
     // }
@@ -112,8 +112,8 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
 
   const handleComplete = () => {
     // Mark demo as completed in localStorage
-    // localStorage.setItem('tina-demo-completed', 'true');
-    // localStorage.setItem('tina-demo-completed-date', new Date().toISOString());
+    localStorage.setItem('tina-demo-completed', 'true');
+    localStorage.setItem('tina-demo-completed-date', new Date().toISOString());
 
     setIsCompleting(true);
     setTimeout(() => {
