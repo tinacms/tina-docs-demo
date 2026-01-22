@@ -60,8 +60,8 @@ importers:
         specifier: ^6.18.0
         version: 6.18.0(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7)
       mongodb-level:
-        specifier: 0.0.2
-        version: 0.0.2(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7)
+        specifier: 0.0.4
+        version: 0.0.4(mongodb@6.18.0(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7))
       motion:
         specifier: ^12.15.0
         version: 12.23.1(@emotion/is-prop-valid@0.8.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -5715,8 +5715,10 @@ packages:
   mongodb-connection-string-url@3.0.2:
     resolution: {integrity: sha512-rMO7CGo/9BFwyZABcKAWL8UJwH/Kc2x0g72uhDWzG48URRax5TCIcJ7Rc3RZqffZzO/Gwff/jyKwCU9TN8gehA==}
 
-  mongodb-level@0.0.2:
-    resolution: {integrity: sha512-GxsHqSY4M2gHEijJuv4wH1S3bXNOhm6mG8DDp7O7G/JhMNVgRA5h/5iRLxsJxcQt1RE1CDeLc19Ey4bbXuWagg==}
+  mongodb-level@0.0.4:
+    resolution: {integrity: sha512-JSu31wNXsLjpALaRgIGgQ7LXtkURZdEzcwSKGcqdp+SeZa6/JMoRW/wjrmjo/K2nwzkGzqj3t3f7N9B3FIq8Gw==}
+    peerDependencies:
+      mongodb: ^6.18.0
 
   mongodb@6.18.0:
     resolution: {integrity: sha512-fO5ttN9VC8P0F5fqtQmclAkgXZxbIkYRTUi1j8JO6IYwvamkhtYDilJr35jOPELR49zqCJgXZWwCtW7B+TM8vQ==}
@@ -14453,19 +14455,11 @@ snapshots:
       '@types/whatwg-url': 11.0.5
       whatwg-url: 14.2.0
 
-  mongodb-level@0.0.2(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7):
+  mongodb-level@0.0.4(mongodb@6.18.0(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7)):
     dependencies:
       abstract-level: 1.0.4
       module-error: 1.0.2
       mongodb: 6.18.0(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7)
-    transitivePeerDependencies:
-      - '@aws-sdk/credential-providers'
-      - '@mongodb-js/zstd'
-      - gcp-metadata
-      - kerberos
-      - mongodb-client-encryption
-      - snappy
-      - socks
 
   mongodb@6.18.0(@aws-sdk/credential-providers@3.872.0)(socks@2.8.7):
     dependencies:

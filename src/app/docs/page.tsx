@@ -14,7 +14,7 @@ const siteUrl =
 
 export async function generateMetadata() {
   const slug = "index";
-  const { data } = await client.queries.docs({ relativePath: `${slug}.mdx` });
+  const { data } = await fetchTinaData(dbConnection.queries.docs, slug);
   if (!data.docs.seo) {
     data.docs.seo = {
       __typename: "DocsSeo",
