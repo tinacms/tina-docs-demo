@@ -2,8 +2,20 @@ import { defineConfig } from "tinacms";
 import { MockAuthProvider } from "./mock-auth-provider";
 import { schema } from "./schema";
 
+// Get the base URL for the API endpoint
+const getApiUrl = () => {
+  if (typeof window !== "undefined") {
+    // Client-side: use window.location
+    return `${window.location.origin}/api/gql`;
+  }
+  // Server-side: use environment variable or default to localhost
+  return process.env.NEXT_PUBLIC_SITE_URL
+    ? `${process.env.NEXT_PUBLIC_SITE_URL}/api/gql`
+    : "http://localhost:3000/api/gql";
+};
+
 export const config = defineConfig({
-  contentApiUrlOverride: "/api/gql",
+  contentApiUrlOverride: getApiUrl(),
   schema,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   branch:

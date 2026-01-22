@@ -1,4 +1,3 @@
-import { client } from "@/tina/__generated__/client";
 import { createContext, useCallback, useEffect, useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import { EndpointSection } from "./endpoint-section";
@@ -124,23 +123,24 @@ export const ApiReference = (data: ApiReferenceProps) => {
           return;
         }
 
-        // Fetch the schema file via API route
-        let result: any;
+        // Fetch the schema file from API route
+        let schemaJson: any;
         try {
           const response = await fetch(
-            `/api/schema?relativePath=${encodeURIComponent(schemaPath)}`
+            `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/api/api-schema?relativePath=${encodeURIComponent(schemaPath)}`
           );
+
           if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            setEmptySchema();
+            return;
           }
-          result = await response.json();
+
+          const data = await response.json();
+          schemaJson = data.schema;
         } catch (error) {
           setEmptySchema();
           return;
         }
-
-        // Parse the schema JSON
-        const schemaJson = JSON.parse(result.data.apiSchema.apiSchema);
 
         // Process the schema data
         processSchemaData(schemaJson, endpointSelector);

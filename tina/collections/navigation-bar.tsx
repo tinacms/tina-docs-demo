@@ -1,6 +1,6 @@
 import { getBearerAuthHeader } from "@/src/utils/tina/get-bearer-auth-header";
-import { ApiReferencesSelector } from "../customFields/api-reference-selector";
 import DemoMode from "../customFields/demo-mode";
+import { ApiReferencesSelector } from "../customFields/api-reference-selector";
 import { itemTemplate } from "../templates/navbar-ui.template";
 import submenuTemplate from "../templates/submenu.template";
 
