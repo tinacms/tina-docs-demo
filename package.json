@@ -67,5 +67,10 @@
     "tailwindcss": "^4.1.8",
     "worker-loader": "^3.0.8"
   },
+  "pnpm": {
+    "overrides": {
+      "mongodb-level>mongodb": "^6.18.0"
+    }
+  },
   "packageManager": "pnpm@9.15.2"
 }
