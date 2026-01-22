@@ -1,4 +1,4 @@
-import { client } from "@/tina/__generated__/client";
+import { dbConnection } from "../../../../lib/databaseConnection";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const result = await client.queries.apiSchema({
+    const result = await dbConnection.queries.apiSchema({
       relativePath: relativePath,
     });
 
