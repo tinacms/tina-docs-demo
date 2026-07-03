@@ -54,8 +54,16 @@ jobs:
       - name: Build (validate Tina schema + generated client)
         run: pnpm exec tinacms build
 
-  search-tests:
-    needs: build
-    uses: ./.github/workflows/search-test.yml
-    with:
-      base_url: https://tina-docs-git-${{ github.head_ref }}-tinacms.vercel.app
+  # NOTE: the search-tests job was removed from the PR gate because it could
+  # never pass here:
+  #   1. Its base_url was wrong — the preview alias is
+  #      `tina-docs-demo-git-<branch>-tinacms.vercel.app` (project is
+  #      `tina-docs-demo`), and the branch slug must have `/` replaced with `-`.
+  #   2. Preview deployments are behind Vercel Deployment Protection (every
+  #      path 302s to vercel.com/sso-api), so an unauthenticated Playwright run
+  #      can't reach the site.
+  # To restore it: enable "Protection Bypass for Automation" in the Vercel
+  # project, add VERCEL_AUTOMATION_BYPASS_SECRET to repo secrets, send it as the
+  # `x-vercel-protection-bypass` header from Playwright, and re-add a job that
+  # calls ./.github/workflows/search-test.yml with the corrected base_url. The
+  # reusable workflow still runs via workflow_dispatch in the meantime.
