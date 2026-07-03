@@ -68,9 +68,11 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const [isCompleting, setIsCompleting] = useState(false);
 
-  // Check if demo has been completed before
+  // Check if demo has been completed before (runs once on mount by design)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only check; forceShow is read intentionally without re-subscribing
   useEffect(() => {
-    const hasCompletedDemo = localStorage.getItem('tina-demo-completed') === 'true';
+    const hasCompletedDemo =
+      localStorage.getItem("tina-demo-completed") === "true";
 
     if (!forceShow && hasCompletedDemo) {
       setIsVisible(false);
@@ -112,8 +114,8 @@ export const DemoIntroSequence: React.FC<DemoIntroSequenceProps> = ({
 
   const handleComplete = () => {
     // Mark demo as completed in localStorage
-    localStorage.setItem('tina-demo-completed', 'true');
-    localStorage.setItem('tina-demo-completed-date', new Date().toISOString());
+    localStorage.setItem("tina-demo-completed", "true");
+    localStorage.setItem("tina-demo-completed-date", new Date().toISOString());
 
     setIsCompleting(true);
     setTimeout(() => {

@@ -1,5 +1,5 @@
-import { dbConnection } from "../../../../lib/databaseConnection";
 import { type NextRequest, NextResponse } from "next/server";
+import { dbConnection } from "../../../../lib/databaseConnection";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
